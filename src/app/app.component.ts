@@ -1,38 +1,39 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-    visiableLightbox: boolean = false;
-    currentIndex: number = 0;
-    currentObj = [];
+  visiableLightbox: boolean = false;
+  currentIndex: number = 0;
+  currentObj = [];
 
-    title = 'app';
+  title = 'app';
 
-    imageObject1 = [{
-        video: 'https://youtu.be/6pxRHBw-k8M'
-    }, {
-        video: 'https://youtu.be/tYa6OLQHrEc'
-    },{
-        video: 'assets/video/movie2.mp4',
-        title: 'MP4 Video exmaple two with Poster-Image.',
-        alt: 'alt MP4 Video exmaple two with Poster-Image.'
-    }, {
-        image: 'assets/img/slider/4.jpg',
-    }];
+  imageObject1 = [{
+    video: 'https://youtu.be/6pxRHBw-k8M'
+  }, {
+    video: 'https://youtu.be/tYa6OLQHrEc'
+  }, {
+    video: 'assets/video/movie2.mp4',
+    title: 'MP4 Video exmaple two with Poster-Image.',
+    alt: 'alt MP4 Video exmaple two with Poster-Image.'
+  }, {
+    image: 'assets/img/slider/4.jpg',
+  }];
 
-    showLightbox(object, index) {
-        this.currentIndex = index;
-        this.currentObj = object;
-        console.log('=>', this.currentObj, this.currentIndex)
-        this.visiableLightbox = true;
-    }
+  showLightbox(object, index) {
+    this.currentIndex = index;
+    this.currentObj = object;
+    console.log('=>', this.currentObj, this.currentIndex);
+    this.visiableLightbox = true;
+  }
 
-    closeHandler() {
-        this.visiableLightbox = false;
-        this.currentIndex = -1;
-    }
+  closeHandler() {
+    this.visiableLightbox = false;
+    this.currentIndex = -1;
+  }
 }
